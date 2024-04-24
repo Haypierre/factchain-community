@@ -27,7 +27,7 @@
   ],
   "permissions": ["storage"],
   "host_permissions": [
-    "https://api.factchain.tech/*",
+    "https://thefactchain-3eace0b2ba88.herokuapp.com/*",
     "https://testnets.opensea.io/*"
   ],
   "background": {

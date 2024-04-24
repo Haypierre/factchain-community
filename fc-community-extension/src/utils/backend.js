@@ -1,4 +1,5 @@
-const BACKEND_URL = 'https://api.factchain.tech';
+// const BACKEND_URL = 'https://api.factchain.tech';
+const BACKEND_URL = 'https://thefactchain-3eace0b2ba88.herokuapp.com';
 
 import { socialsSupportedNetworks } from './constants';
 
