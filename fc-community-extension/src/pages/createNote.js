@@ -12,6 +12,16 @@ import { FCHero, FCLoaderClean } from './components';
 import './style.css';
 import { FCMetamaskConnectButton } from './components/FCConnectButton';
 
+const postUrl = await chrome.runtime.sendMessage({
+  type: 'fc-get-from-cache',
+  target: 'postUrl',
+});
+logger.log('Post URL', postUrl);
+
+const selectedNetwork = await chrome.runtime.sendMessage({
+  type: 'fc-get-network',
+});
+
 export function FCCreateNote({ postUrl, createNote }) {
   const [transaction, setTransaction] = createSignal(null);
   const [submitting, setSubmitting] = createSignal(false);
@@ -74,7 +84,10 @@ export function FCCreateNote({ postUrl, createNote }) {
                   View transaction on{' '}
                   <a
                     className="link"
-                    href={makeTransactionUrl(transactionHash())}
+                    href={makeTransactionUrl(
+                      selectedNetwork.explorerUrl,
+                      transactionHash()
+                    )}
                     target="_blank"
                   >
                     {'etherscan'}
@@ -120,16 +133,6 @@ export function FCCreateNote({ postUrl, createNote }) {
     </div>
   );
 }
-
-const postUrl = await chrome.runtime.sendMessage({
-  type: 'fc-get-from-cache',
-  target: 'postUrl',
-});
-logger.log('Post URL', postUrl);
-
-const selectedNetwork = await chrome.runtime.sendMessage({
-  type: 'fc-get-network',
-});
 
 const createNote = async (content) => {
   const provider = await createFactchainProvider(selectedNetwork);

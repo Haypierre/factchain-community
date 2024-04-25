@@ -1,4 +1,4 @@
-const BACKEND_URL = 'https://api.factchain.tech';
+const BACKEND_URL = 'https://api.factchain.world';
 
 import { socialsSupportedNetworks } from './constants';
 

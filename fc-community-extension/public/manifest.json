@@ -27,7 +27,7 @@
   ],
   "permissions": ["storage"],
   "host_permissions": [
-    "https://api.factchain.tech/*",
+    "https://api.factchain.world/*",
     "https://testnets.opensea.io/*"
   ],
   "background": {
