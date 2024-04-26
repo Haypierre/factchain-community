@@ -92,7 +92,7 @@ export class NoteService {
       (note) => {
         return (
           !note.finalRating
-          && (note.creatorAddress.toLowerCase() != byAddress.toLowerCase())
+          && (note.creatorAddress.toLowerCase() !== byAddress.toLowerCase())
           && (!ratingsBy.find((rating) => (rating.postUrl === note.postUrl) && (rating.noteCreatorAddress === note.creatorAddress)))
         );
       }
